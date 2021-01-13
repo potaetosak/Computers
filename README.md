@@ -1,21 +1,19 @@
 # CCOMP verano
 Mateo Rodriguez
 Rafael estuvo aquí
-Primera tarea
-#include <iostream>;
-#include <stdio.h>;
-#include <string.h>;
-using namespace std;
-int main(){   
+
+
+    Primera tarea
+     #include <iostream>;
+    #include <stdio.h>;
+    #include <string.h>;
+    using namespace std;
+    int main(){ 
     //Ejercicio #16
-    int n1, n2;
-
-    cout << "\n   Introduzca el primer numero: ";
+    int n1, n2;cout << "\n   Introduzca el primer numero: ";
     cin >> n2;
-
     cout << "\n   Introduzca el segundo numero: " ;
     cin >> n1;
-
     cout << "\n   La suma es: " << n1 + n2 ;
     cout << "\n   El producto es: " << n1 * n2 ;
     cout << "\n La diferencia es: " << n1-n2;
