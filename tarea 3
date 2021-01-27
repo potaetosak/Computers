@@ -1,0 +1,198 @@
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <vector>
+#include <math.h>
+using namespace std;
+//6.42
+class punto{
+    public:
+        double x;
+        double y;
+};
+//6.49
+int triplebyvalue (int a){
+     return 3*a;
+}
+int triplebyreference (int& a){
+     return 3*a;
+}
+ //Insertion parte 1
+   void display(int *array3, int size) {
+   for(int i = 0; i<size; i++)
+      cout << array3[i] << " ";
+   cout << endl;
+   }
+   void insertionSort(int *array3, int size) {
+   int key, j;
+   for(int i = 1; i<size; i++) {
+      key = array3[i];
+      j = i;
+      while(j > 0 && array3[j-1]>key) {
+         array3[j] = array3[j-1];
+         j--;
+      }
+      array3[j] = key;
+    }
+    }
+    //Quick parte 1
+    void swap(int arr4[], int ii, int j){
+    int temp = arr4[ii];
+    arr4[ii] = arr4[j];
+    arr4[j] = temp;
+}
+int partition(int arr4[], int l, int r){
+    int pivot = arr4[r];
+    int ii = l - 1;
+    for(int j = l; j < r; j++){
+        if(arr4[j] < pivot){
+            ii++;
+            swap(arr4, ii, j);
+        }
+    }
+    swap(arr4, ii + 1, r);
+    return ii+1;
+}
+void quicksort(int arr4[], int l, int r){
+    if(l < r){
+        int pi = partition(arr4, l, r);
+        quicksort(arr4, l, pi-1);
+        quicksort(arr4, pi+1, r);
+    }
+}
+    
+	
+    
+int main(){
+	//6.42
+    punto punto1;
+    punto punto2;
+    punto1.x=5;
+    punto1.y=2;
+    punto2.x=6;
+    punto2.y=7;
+    double distancia_x, distancia_y, distancia_final;
+    distancia_x = pow(punto1.x-punto2.x,2.);
+    distancia_y=pow(punto1.y-punto2.y,2.);
+    distancia_final= pow(distancia_x+distancia_y,1/2);
+    cout << "La distancia entre los puntos es: " << distancia_final;
+    //7.13
+    const int SIZE = 20; 
+	   int a[SIZE] = { 0 };
+	   int subscript = 0;
+	   int duplicate;
+	   int value; 
+
+	   cout << "Ingrese numeros entre 10 y 100: \n";
+
+	   for ( int i = 0; i < SIZE;)
+	   {
+		   duplicate = 0;
+		   cin >> value;
+
+		   if ( value >= 10 && value <= 100 )
+		   {
+			   for ( int j = 0; j < subscript; j++ )
+			   {
+				   if ( value == a[ j ] )
+				   {
+					   duplicate = 1;
+					   break;
+				   } 
+			   } 
+			   if ( !duplicate )
+			   {
+				   a[subscript++ ] = value;
+				   i++;
+			   } 
+			   else
+				   cout << "numero duplicado.\n";
+		   } 
+		   else
+			   cout << "Numero invalido.\n";
+	   } 
+
+	   cout << "\n Los valores no duplicados son: \n";
+	   for ( int i = 0; 1 < SIZE; i++ )
+		   cout << a[ i ] << ", ";
+
+	   cout << endl;
+	//7.14
+	const size_t SIZE = 20; // size of array
+ array< int, SIZE > a = {};
+ size_t subscript = 0;
+ bool duplicate = false;
+ cout << "Enter 20 integers between 10 and 100:\n";
+
+ unsigned int i = 0;
+
+ while ( i < a.size() )
+ {
+ duplicate = false;
+ int value = 0; 
+ cin >> value;
+ if ( value >= 10 && value <= 100 )
+ {
+ for ( size_t j = 0; j < subscript; ++j )
+ {
+ if ( value == a[ j ] )
+ {
+ duplicate = true;
+ break;
+ } 
+ } 
+ if ( !duplicate )
+ a[ subscript++ ] = value;
+ else
+ cout << "Numero repetido.\n";
+ ++i;
+ } 
+ else
+ cout << "Numero no valido.\n";
+ }
+ cout << "\n Los numeros no repstidos son:\n";
+ for ( size_t index = 0; index < subscript; ++index )
+ cout << a[ index ] << ' ';
+ cout << endl;
+    //7.30
+    int array[6];
+    void imprimir(int inicio, int fin){
+	    if (inicio == fin){
+		    cout << array[inicio];
+		    inicio = inicio + 1 ;
+		    return;
+	}
+
+	fin = (inicio + fin )/ 2;
+
+	imprimir(inicio, fin);
+}
+	//Insertion parte 2
+    int n2;
+    cout << "Cuantos elementos va a usar: ";
+    cin >> n2;
+    int arr3[n2];    
+    cout << "Ingrese los elementos:" << endl;
+    for(int i = 0; i<n2; i++) {
+        cin >> arr3[i];
+    }
+    cout << "Lista desordenada: ";
+    display(arr3, n2);
+    insertionSort(arr3, n2);
+    cout << "Lista ordenada: ";
+    display(arr3, n2);
+    //Quick parte 2
+    int arr4[5]={5, 4, 3, 2, 1};
+    cout << "Lista desordenada: ";
+    display(arr4, 5);
+    cout << "La lista ordenada es: ";
+    quicksort(arr4, 0, 4);
+	
+   
+    for(int i=0; i<5; i++){
+        cout<<arr4[i]<<" ";
+    }cout<<endl;
+    
+    return 0;
+    
+}
