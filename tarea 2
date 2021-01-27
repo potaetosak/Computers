@@ -1,0 +1,141 @@
+#include <iostream>;
+#include <stdio.h>;
+#include <string.h>;
+#include <cmath>;
+using namespace std;
+int fib(int n){
+
+    if(n < 2)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+  }
+int main(){
+    //Ejercicio 24
+    /*cuando x = 5 y = 15
+    a)  YxYxY
+        OoOoO
+    b)  YxYxY
+        OoOoO
+    cuando x = 15 y = 5
+    a)  XxXxX
+        OoOoO
+    b)   XxXxX 
+	*/
+    //Ejercicio 26
+    int lado, lado1, lado2, espacio;
+    cout << "Ingrese la medida del lado: ";
+    cin >> lado;
+    lado1 = lado-1;
+    lado2 = lado-1;
+    espacio = lado-2;
+    while (lado2 != 0){
+	    while (lado1 != 0){
+		    while (lado !=0){
+				cout << "*";
+    			lado = lado-1;
+			}
+    		cout << "\n*";
+    		lado1 = lado1-1;
+    		
+		}
+    	cout << "*";
+    	lado2 = lado2-1;
+    	
+	}
+    // Ejercicio 27
+    string numero;
+    int aux_7 = 0, igual = 0;
+    
+    cout << "\n Ingrese el numero: ";
+    getline(cin >> ws, numero);
+    
+    for(int ind = numero.length() - 1; ind >= 0; ind--) {
+        if(numero[ind] == numero[aux_7]) {
+            igual++;
+        }
+        aux_7++;
+    }
+    
+    if(numero.length() == igual) {
+        cout << "Es un palindromo" << endl;
+    } else {
+        cout << "No es un palindromo" << endl;
+    }
+	// Ejercicio 28
+    int exp,digito;
+    double binario, decimal;
+    cout << "\n Introduce un numero binario: ";
+    cin >> binario;
+    exp=0;
+    decimal=0;
+    while(((int)(binario/10))!=0){
+        digito = (int)binario % 10;
+        decimal = decimal + digito * pow(2.0,exp);
+        exp++;
+        binario=(int)(binario/10);
+   }
+   decimal=decimal + binario * pow(2.0,exp);
+   cout << endl << "\n El numero expresado en decimal es: " << decimal << endl;	
+   //Ejercicio 30
+    int n;
+    cout << "\n Ingrese la cantidad de numeros: ";
+    cin >> n;
+    cout << "\n La serie de fibonacci con " << n << " digitos es: ";
+    fib(n);
+    for(int i =0; i <= n; i++)
+    cout << fib(i) << " ";
+    //Ejercicio 32
+    /* El error es que el doble + al inicio será ignorado
+    Yo creo que el programador quería poner 
+    cout << (x+y)++;
+    */
+    //Ejercicio 33
+    int lado_1, lado_2, lado_3;
+    cout << "\n Ingrese el primer lado: ";
+    cin >> lado_1;
+    cout << "\n Ingrese el segundo lado: ";
+    cin >> lado_2;
+    cout << "\n Ingrese el tercer lado: ";
+    cin >> lado_3;
+    if (lado_1 < 1 || lado_2 < 1 || lado_3 <1 || lado_1 + lado_2 < lado_3 && lado_1 - lado_2 >= lado_3){
+    	cout << "\n No es un triangulo";
+        }
+    else
+	    cout << "\n Es un triangulo";    
+    
+    // Ejercicio 35
+    int valor, xd, dx;
+    cout << "\n Ingrese el factorial que quiere encontrar: ";
+    cin >> valor;
+    xd = 1;
+    while (valor > 1){
+	
+    	xd = valor*xd;
+    	valor = valor - 1;
+        }
+        cout << xd;
+    return 0;}
+    
+    
+   /* 
+    
+    int fib(int n)
+{
+if(n == 0)
+    {
+    return 0;
+    }
+if(n == 1)
+    {
+    return 1;
+    }
+cout<<n<<endl;
+return fib(n-1) + fib(n);
+}
+int fib_pow (int n, int a,int b,);
+{
+    if(n == 0){return 0;} if(n==1){return 1;}
+    return fib_pow(n-1, b, a+b);
+}
+    */
